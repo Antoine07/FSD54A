@@ -16,22 +16,62 @@
     <!-- Le script JSX -->
     <script type="text/babel">
 
-        function App(){
+        function UserList({ users }) {
+            
+            return (
+                <ul>
+                    {users.map((user, index) => <li key={index}>{user}</li>)}
+                </ul>
+            )
+        }
+
+        function App() {
             const [username, setUsername] = React.useState('')
             const [users, setUsers] = React.useState([])
             const [error, setError] = React.useState('')
+
+            const handleChange = e => {
+                const { value } = e.target
+                setUsername(value)
+            }
+
+            const handleSubmit = e => {
+                e.preventDefault()
+                // error firts
+                if (!username) {
+                    setError("Le champ username est obligatoire")
+
+                    return
+                }
+
+                if (users.includes(username)) {
+                    setError(`L'utilisateur ${username} existe déjà`)
+
+                    return
+                }
+
+                // partie algo 
+                const newUsers = [ ...users, username ] // re-render 
+                setUsers(newUsers)
+                setError('')
+                setUsername('')
+            }
 
             return (
                 <React.Fragment>
                     <h1>Add user </h1>
                     <form onSubmit={handleSubmit}>
-                        
+                        <label>Name:</label>
+                        <input type="text" name="username" value={username} onChange={handleChange} />
+                        {error && <p style={{ color: 'red' }}>{error}</p>}
+                        <button type="submit" >Add</button>
                     </form>
+                    {users.length > 0 && <UserList users={users} />}
                 </React.Fragment>
             )
         }
 
-        ReactDOM.render(<App />, document.getElementById('root'));
+        ReactDOM.createRoot(root).render(<App />)
     </script>
 </body>
 
