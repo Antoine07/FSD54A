@@ -31,12 +31,17 @@
     <script type="text/babel">
 
         const Counter = () => {
-            
+            // state count à une valeur
+            // setCount modifiera le state avec par exemple une action (onClick appeler la méthode setCount)
+            const [count, setCount] = React.useState(10)
 
+            // count++ <=> count = count + 1 attention ne marche pas dans le setCount
+        
             return (
                 <div>
-                    <p>Count: XXX</p>
-                  
+                    <p>Count: {count}</p>
+                    <p><button onClick={() => setCount(count+ 1)}>+1</button></p>
+                    <p>-1</p>
                 </div>
             );
         };

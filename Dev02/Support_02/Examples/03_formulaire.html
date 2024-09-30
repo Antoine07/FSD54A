@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- babel => compilation du JSX -->
+    <script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
+    <style>
+        .heading {
+            color: purple;
+        }
+
+        .main {
+            margin: 20px;
+        }
+
+        .letter::first-letter {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const App = () => {
+            const [username, setUsername] = React.useState("");
+
+            const handleChange = (event) => {
+                console.log(event.target.value)
+                setUsername(event.target.value)
+            };
+
+            const handleSubmit = (event) => {
+                event.preventDefault();
+                console.log(`User added: ${username}`);
+                setUsername(""); // Reset the input field
+            };
+
+            return (
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        Username:
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={handleChange}
+                            required // HTML5 required attribute
+                        />
+                    </label>
+                    <button type="submit">Add User</button>
+                </form>
+            )
+        }
+
+
+        ReactDOM.createRoot(root).render(<App />)
+    </script>
+</body>
+
+</html>
