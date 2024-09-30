@@ -153,8 +153,11 @@ Affichez les erreurs sous le formulaire :
 
 ### Exercice 2 : Calcul des Multiples
 
-**Énoncé** : Créez un formulaire qui permet de choisir un nombre entier et d'afficher tous ses multiples jusqu'à 100 dans une liste.
+**Énoncé** : 
 
+1. Créez un formulaire qui permet de choisir un nombre entier et d'afficher tous ses multiples jusqu'à 100 dans une liste.
+
+2. Lorsque vous changez de multiple indiquez le dans la page avec une phrase du genre : "Le multiple choisi est 7"
 
 ### TP conversion de nombres
 
