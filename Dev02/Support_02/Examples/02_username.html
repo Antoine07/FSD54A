@@ -30,40 +30,50 @@
     <div id="root"></div>
     <script type="text/babel">
 
+        const initialState = [
+            {
+                "name": "Alice",
+                "age": 28
+            },
+            {
+                "name": "Bob",
+                "age": 34
+            },
+            {
+                "name": "Charlie",
+                "age": 22
+            },
+            {
+                "name": "David",
+                "age": 41
+            },
+            {
+                "name": "Eva",
+                "age": 30
+            }
+        ]
+
+        // Reducer pour gérer le tri
+        function reducer(state, action) {
+           
+        }
+
         const App = () => {
-            const userNames = [
-                {
-                    "name": "Alice",
-                    "age": 28
-                },
-                {
-                    "name": "Bob",
-                    "age": 34
-                },
-                {
-                    "name": "Charlie",
-                    "age": 22
-                },
-                {
-                    "name": "David",
-                    "age": 41
-                },
-                {
-                    "name": "Eva",
-                    "age": 30
-                }
-            ]
+            const [state, dispatch] =  React.useReducer(reducer, initialState)
 
             return (
                 <div>
-                    TODO
-                    1. Afficher tous les nom avec les ages
-                    2. Créez un bouton permettant d'ordonner les personnes en fonction de leur age (ordre croissant/décroissant)
+                    <h2>Liste des utilisateurs</h2>
+                    <ul>
+                      
+                    </ul>
+
+                 
                 </div>
             );
         };
 
-        ReactDOM.createRoot(root).render(<Counter />)
+        ReactDOM.createRoot(root).render(<App />)
     </script>
 </body>
 
