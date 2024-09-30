@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React JSX CDN Example</title>
+    <!-- Inclure les CDN de React et ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- Le script JSX -->
+    <script type="text/babel">
+
+        function CalculMultiple(base){
+            const multiples = []
+            // à chaque tour de boucle on teste si i*base est bien inférieur ou égale à 100
+            for(let i = 1; i*base <= 100; i++) multiples.push(i*base)
+
+            return multiples
+        }
+
+
+        function App() {
+            const [base, setBase] = React.useState(2);
+            const [multiples, setMultiples] = React.useState([1, 2, 3]);
+
+            const [message, setMessage ] = React.useState('')
+
+            const handleBase = e => {
+                setBase(e.target.value);
+            }
+
+            const handleSubmit = e => {
+                e.preventDefault();
+
+                const m = CalculMultiple(base)
+                setMultiples(m)
+            }
+
+            // on regarde les changements de l'état de la variable base, mais on pourrait tout à fait regarder un autre state
+            React.useEffect(() => {
+                setMessage('')
+                console.log(base, "changement de base")
+                if(base != 0)
+                    setMessage(`La valeur de la base est : ${base}`)
+                else 
+                    setMessage('')
+            }, [base])
+
+            return (
+                <div>
+                    <h1>Multiple : {base} </h1>
+                    { message && <p> {message} </p>}
+                    <form onSubmit={handleSubmit} >
+                        <label >Choisissez un nombre</label>
+                        <select name="base" value={base} onChange={handleBase}>
+                            { [2, 3, 4, 5, 6, 7].map( (num, i) => <option key={i} value={num} >{num}</option>)}
+                            <option value="0">Aucune</option>
+                        </select>
+                        <button type="submit">Calculer</button>
+                    </form>
+                    {multiples.length > 0 && (
+                        <ul>
+                            {multiples.map((multiple, i ) => <li key={i}>{multiple}</li>)}
+                        </ul>
+                    )}
+                </div>
+            )
+
+        }
+
+        ReactDOM.createRoot(root).render(<App />)
+
+    </script>
+</body>
+
+</html>
