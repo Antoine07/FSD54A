@@ -53,22 +53,42 @@
             }
         ]
 
-        // Reducer pour gérer le tri
+        // state et action, ici on met l'algo pour modifier le state 
         function reducer(state, action) {
-           
+
+            switch (action.type) {
+
+                case 'ASC':
+                    // copie de l'objet state => le re-render se fera car React va voir que la variable à changer
+                    const orderAsc = [...state].sort((a, b) => a.age - b.age);
+
+                    return orderAsc;
+
+                case 'DESC':
+                    // copie de l'objet state => le re-render se fera car React va voir que la variable à changer
+                    const orderDesc= [...state].sort((a, b) => b.age - a.age);
+
+                    return orderDesc;
+                default:
+                    return state;
+            }
+
         }
 
         const App = () => {
-            const [state, dispatch] =  React.useReducer(reducer, initialState)
+            // on a une fonction reducer et un state initale (données)
+            const [state, dispatch] = React.useReducer(reducer, initialState);
 
             return (
                 <div>
                     <h2>Liste des utilisateurs</h2>
                     <ul>
-                      
+                        {state.map((user, index) => <li key={index}>{user.name} - age : {user.age}</li>)}
                     </ul>
+                    {/* dispatch permet de dispatcher une action <=> définit dans le type */}
+                    <p><button onClick={() => dispatch({ type: 'ASC' })}>Ordre croissant (age) </button></p>
+                    <p><button onClick={() => dispatch({ type: 'DESC' })}>Ordre décroissant (age) </button></p>
 
-                 
                 </div>
             );
         };
