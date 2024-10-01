@@ -13,7 +13,7 @@ Dans cet exercice, vous allez créer un petit composant React qui simule l'activ
 
 ```js
 // si vous utilisez le setInterval pensez à la syntaxe suivante pour la fonction de mise à jour du state
-setCount( prevCount => preCount + 1 )
+setCount( prevCount => prevCount + 1 )
 ```
 
 3. **Démontage du composant :**
