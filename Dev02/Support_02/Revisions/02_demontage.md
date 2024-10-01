@@ -9,10 +9,24 @@ Dans cet exercice, vous allez créer un petit composant React qui simule l'activ
    - Créez un état `count` qui démarre à 0 et qui sera incrémenté automatiquement toutes les secondes.
 
 2. **Utilisation de `useEffect` pour créer une minuterie :**
-   - Dans un `useEffect`, utilisez `setInterval` pour incrémenter la valeur de `count` toutes les secondes.
+   - Dans un `useEffect`, utilisez `setInterval` ou un `setTimeout` pour incrémenter la valeur de `count` toutes les secondes.
+
+```js
+// si vous utilisez le setInterval pensez à la syntaxe suivante pour la fonction de mise à jour du state
+setCount( prevCount => prevCount + 1 )
+```
 
 3. **Démontage du composant :**
    - Lorsque le composant est démonté, utilisez une **fonction de nettoyage** pour arrêter la minuterie avec `clearInterval` afin d'éviter que la minuterie continue de fonctionner après le démontage.
+
+```js
+React.useEffect(()=>{
+
+   return () => {
+      // faire quelque chose avant que le composant ne soit démonté
+   }
+}, [])
+```
 
 4. **Bouton d'activation/désactivation :**
    - Ajoutez un bouton permettant de monter ou démonter le composant contenant la minuterie.
