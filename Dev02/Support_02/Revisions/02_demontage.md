@@ -19,6 +19,15 @@ setCount( prevCount => preCount + 1 )
 3. **Démontage du composant :**
    - Lorsque le composant est démonté, utilisez une **fonction de nettoyage** pour arrêter la minuterie avec `clearInterval` afin d'éviter que la minuterie continue de fonctionner après le démontage.
 
+```js
+React.useEffect(()=>{
+
+   return () => {
+      // faire quelque chose avant que le composant ne soit démonté
+   }
+}, [])
+```
+
 4. **Bouton d'activation/désactivation :**
    - Ajoutez un bouton permettant de monter ou démonter le composant contenant la minuterie.
 
