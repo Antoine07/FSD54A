@@ -4,8 +4,10 @@ const Layout = ({children}) => {
   return (
     <div>
       <nav>
-        <Link to="/">Accueil</Link>
-        <Link to="/about">À propos</Link>
+        <ul>
+          <li><Link to="/">Accueil</Link></li>
+          <li><Link to="/about">À propos</Link></li>
+        </ul>
       </nav>
       <hr />
       <Outlet />
