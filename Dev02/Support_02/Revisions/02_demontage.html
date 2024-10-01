@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Exercice de démontage avec useEffect</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel pour le JSX -->
+    <script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
+
+    <style>
+        .main {
+            margin: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const Timer = () => {
+            const [count, setCount] = React.useState(0)
+
+            React.useEffect(() => {
+
+                const interval = setInterval(() => {
+                    // problème de scope voir le support de cours
+                    setCount(prevCount => prevCount + 1)
+                    console.log(Math.random())
+                }, 1000)
+
+                return () => {
+                    // au démontage on stop le setInterval pour éviter les fuites mémoires
+                    clearInterval(interval)
+                }
+            }, [])
+
+            return (
+                <p>Counter : {count}</p>
+            )
+        }
+
+        const App = () => {
+            const [status, setStatus] = React.useState(true)
+
+            const handleClick = () => setStatus(!status) ;
+            
+
+            return (
+                <div>
+                    <button onClick={handleClick}>{ status ? 'stop compteur' : 'start compteur'}</button>
+
+                    { status && <Timer /> }
+                </div>
+            )
+        }
+
+        ReactDOM.createRoot(root).render(<App />)
+    </script>
+</body>
+
+</html>

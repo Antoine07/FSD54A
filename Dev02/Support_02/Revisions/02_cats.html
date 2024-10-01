@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- babel => compilation du JSX -->
+    <script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
+    <style>
+        .heading {
+            color: purple;
+        }
+
+        .main {
+            margin: 20px;
+        }
+
+        .letter::first-letter {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+            const [cats, setCats] = React.useState([])
+            const [filterCats, setFilterCats] = React.useState([])
+            const [filter, setFilter] = React.useState('')
+
+            React.useEffect(() => {
+                const fetchCats = () => {
+                    setTimeout(() => {
+                        setCats(['Mittens', 'Whiskers', 'Shadow', 'Luna', 'Tiger'])
+                        console.log( cats )
+                    }, 1000)
+                }
+
+                fetchCats()
+            }, 
+            [])
+
+            React.useEffect(() => {
+                setFilterCats( cats.filter(cat => cat.includes(filter)))
+            }, [filter, cats])
+
+            return (
+                <div>
+                    <h1>Liste des noms de chats</h1>
+                    <input
+                        type="text"
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                        placeholder="Filtrer les noms"
+                    />
+                    <ul>
+                        {filterCats.map((cat, i) => <li key={i}>{cat}</li>)}
+                    </ul>
+                </div>
+            );
+        };
+
+        ReactDOM.createRoot(root).render(<App />)
+    </script>
+</body>
+
+</html>
