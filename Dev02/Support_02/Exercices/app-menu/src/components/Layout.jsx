@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
 
-const Layout = () => {
+const Layout = ({children}) => {
   return (
     <div>
       <nav>
@@ -9,6 +9,7 @@ const Layout = () => {
       </nav>
       <hr />
       <Outlet />
+      {children}
     </div>
   );
 };
