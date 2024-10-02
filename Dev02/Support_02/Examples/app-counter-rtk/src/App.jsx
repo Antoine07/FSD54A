@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <h1>Hello RTK : count: {value} - step : {step} </h1>
+      <p><button onClick={() => dispatch(increment())}>+1</button></p>
     </>
   )
 }
