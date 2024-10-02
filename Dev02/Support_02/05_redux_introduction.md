@@ -26,7 +26,7 @@ Dans les applications modernes, l'état peut devenir complexe, surtout lorsque p
 
 ### Schéma
 
-[redux](./images/redux.png)
+![redux](./images/redux.png)
 
 #### Conclusion
 
