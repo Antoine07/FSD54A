@@ -24,6 +24,10 @@ Dans les applications modernes, l'état peut devenir complexe, surtout lorsque p
 
 - **Middleware** : Le middleware est un outil qui permet d'intercepter des actions avant qu'elles n'atteignent le reducer. Il est souvent utilisé pour gérer les effets secondaires, comme les appels API.
 
+### Schéma
+
+[redux](./images/redux.png)
+
 #### Conclusion
 
 Redux est un puissant outil pour gérer l'état dans des applications JavaScript complexes. Son architecture basée sur des actions et des reducers permet une prévisibilité et une maintenabilité accrues, ce qui le rend particulièrement adapté aux projets de grande envergure. Dans ce cours, nous explorerons comment intégrer Redux avec React en utilisant **Redux Toolkit**, qui simplifie encore plus le processus de configuration et de gestion de l'état.
