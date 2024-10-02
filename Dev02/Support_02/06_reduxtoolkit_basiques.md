@@ -10,12 +10,6 @@ Pour commencer à utiliser Redux Toolkit, installez-le avec npm ou yarn :
 npm install @reduxjs/toolkit react-redux
 ```
 
-ou
-
-```bash
-yarn add @reduxjs/toolkit react-redux
-```
-
 ### Concepts de base
 
 1. **Store** : Un store est un conteneur qui stocke l'état de votre application. C'est un objet JavaScript qui contient l'état principal et fournit des méthodes pour le lire, le mettre à jour et s'abonner aux changements.
@@ -33,9 +27,9 @@ Voici comment configurer un store avec Redux Toolkit.
 ```plaintext
 src/
   ├── features/
-  │   └── counterSlice.js
-  ├── App.js
-  └── index.js
+  │   └── counterSlice.jsx
+  ├── App.jsx
+  └── index.jsx
 ```
 
 #### Créer un Slice
@@ -71,7 +65,7 @@ export default counterSlice.reducer;
 
 #### Créer le Store
 
-Créez un fichier `store.js` pour configurer le store :
+Créez un fichier `store.jsx` pour configurer le store :
 
 ```javascript
 // src/store.js
@@ -89,10 +83,10 @@ export default store;
 
 ### Utiliser Redux dans l'application
 
-Dans le fichier `index.js`, enveloppez votre application avec le `<Provider>` pour passer le store à tous les composants :
+Dans le fichier `index.jsx`, enveloppez votre application avec le `<Provider>` pour passer le store à tous les composants :
 
 ```javascript
-// src/index.js
+// src/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
