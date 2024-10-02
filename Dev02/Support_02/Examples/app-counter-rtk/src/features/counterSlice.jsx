@@ -14,6 +14,7 @@ const counterSlice = createSlice({
       state.value -= 1;
     },
     incrementByAmount: (state, action) => {
+        // payload récupère les valeurs passées en paramètre de la fonction dispatchée ( action )
       state.value += action.payload;
     },
   },
