@@ -17,7 +17,14 @@ Créer une application React qui permet d'ajouter des prénoms dans une liste et
 
 3. **Composant `Name` :**
    - Affiche la liste des prénoms avec leur longueur respective.
-   - Calcule la longueur de chaque prénom et l'affiche à côté du prénom.
+   - Un bouton permettant de calculer la longueur de tous les prénoms ou un bouton par prénom permettant de calculer la longueur de chaque prénom.
+
+```txt
+// pour chaque prénom 
+   name : Alan [bouton]  // 4
+// ou alors pour les prénoms d'un seul coup
+
+```
 
 ### Structure des fichiers (exemple)
 
