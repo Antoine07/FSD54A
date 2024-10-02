@@ -65,7 +65,7 @@ export default counterSlice.reducer;
 
 #### Créer le Store
 
-Créez un fichier `store.js` pour configurer le store :
+Créez un fichier `store.jsx` pour configurer le store :
 
 ```javascript
 // src/store.js
@@ -83,10 +83,10 @@ export default store;
 
 ### Utiliser Redux dans l'application
 
-Dans le fichier `index.js`, enveloppez votre application avec le `<Provider>` pour passer le store à tous les composants :
+Dans le fichier `index.jsx`, enveloppez votre application avec le `<Provider>` pour passer le store à tous les composants :
 
 ```javascript
-// src/index.js
+// src/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
