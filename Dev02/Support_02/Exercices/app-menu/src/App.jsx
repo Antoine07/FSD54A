@@ -1,27 +1,27 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
+
 import Home from './components/Home'
 import About from './components/About'
+import Layout from './components/Layout'
 import NotFound from './components/NotFound'
+import Conversion from './components/Conversion'
 
 import './App.css'
 
 function App() {
 
   return (
-    <Router>
-      <nav>
-        <ul>
-          {/* les links définissent les actions pour charger les composants */}
-          <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/about">À propos</Link></li>
-        </ul>
-      </nav>
+    <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
+        {/** Layout partie HTML du menu avec les liens */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/conversion" element={<Conversion />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
-    </Router>
+    </>
   )
 }
 

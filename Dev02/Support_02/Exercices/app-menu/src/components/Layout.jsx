@@ -1,19 +1,22 @@
 import { Link, Outlet } from 'react-router-dom'
 
-const Layout = ({children}) => {
+import './Layout.css'
+
+const Layout = () => {
   return (
-    <div>
+    <div className='main-layout'>
       <nav>
-        <ul>
+        <ul className='main-menu'>
           <li><Link to="/">Accueil</Link></li>
+          <li><Link to="/conversion">Conversion</Link></li>
           <li><Link to="/about">À propos</Link></li>
         </ul>
       </nav>
       <hr />
+       {/* Outlet rend les sous-composants */}
       <Outlet />
-      {children}
     </div>
   );
 };
 
-export default Layout;
+export default Layout
