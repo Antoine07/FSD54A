@@ -29,19 +29,18 @@ Voici un exemple de configuration de routes avec React Router DOM 6.4.
 ```plaintext
 src/
   ├── components/
-  │   ├── Home.js
-  │   ├── About.js
-  │   ├── NotFound.js
-  │   └── Layout.js
-  └── App.js
+  │   ├── Home.jsx
+  │   ├── About.jsx
+  │   ├── NotFound.jsx
+  │   └── Layout.jsx
+  └── App.jsx
 ```
 
 #### Composants de base
 
-##### Home.js
+##### Home.jsx
 
 ```jsx
-import React from 'react';
 
 const Home = () => {
   return <h1>Bienvenue sur la page d'accueil!</h1>;
@@ -50,10 +49,9 @@ const Home = () => {
 export default Home;
 ```
 
-##### About.js
+##### About.jsx
 
 ```jsx
-import React from 'react';
 
 const About = () => {
   return <h1>À propos de nous!</h1>;
@@ -62,10 +60,9 @@ const About = () => {
 export default About;
 ```
 
-##### NotFound.js
+##### NotFound.jsx
 
 ```jsx
-import React from 'react';
 
 const NotFound = () => {
   return <h1>404 - Page non trouvée</h1>;
@@ -74,21 +71,23 @@ const NotFound = () => {
 export default NotFound;
 ```
 
-##### Layout.js
+##### Layout.jsx
 
 ```jsx
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom'
 
-const Layout = () => {
+const Layout = ({children}) => {
   return (
     <div>
       <nav>
-        <Link to="/">Accueil</Link>
-        <Link to="/about">À propos</Link>
+        <ul>
+        <li><Link to="/">Accueil</Link></li>
+        <li><Link to="/about">À propos</Link></li>
+        </ul>
       </nav>
       <hr />
       <Outlet />
+      {children}
     </div>
   );
 };
@@ -99,7 +98,6 @@ export default Layout;
 #### Configuration des routes dans App.js
 
 ```jsx
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
