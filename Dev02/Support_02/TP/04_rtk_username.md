@@ -20,15 +20,13 @@ Créer une application React qui permet d'ajouter des prénoms dans une liste et
    - Un bouton permettant de calculer la longueur de tous les prénoms ou un bouton par prénom permettant de calculer la longueur de chaque prénom.
 Voici deux nouvelles fonctionnalités que les étudiants pourraient ajouter à l'exercice :
 
-4. Fonctionnalité de suppression de prénoms :
+4. **Fonctionnalité de suppression de prénoms :**
    - Ajoutez la possibilité de supprimer un prénom de la liste.
    - Créez une nouvelle action dans le `nameSlice` pour gérer la suppression d'un prénom.
    - Dans le composant `Name`, ajoutez un bouton de suppression à côté de chaque prénom. Lorsqu'un prénom est supprimé, la liste doit être mise à jour sans ce prénom.
 
-5. Filtrage des prénoms par longueur :
-   - Ajoutez un champ de saisie permettant de filtrer les prénoms en fonction de leur longueur (par exemple, afficher uniquement les prénoms ayant plus de 5 caractères).
-   - Créez un état local dans un nouveau composant ou dans le store Redux pour stocker la valeur de filtre.
-   - Mettez à jour la liste des prénoms affichée en fonction de ce filtre.
+5. **Ordre:**
+   - Ajoutez la possibilité d'ordonner la liste des prénoms par ordre croissant ou décroissant.
 
 ```txt
 // pour chaque prénom 
