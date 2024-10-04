@@ -90,3 +90,8 @@ L'objectif de ce TP est de créer une application React qui interagit avec une A
 
 1. **Gestion des Identifiants :**
    - Modifiez la logique de création d'un nouvel utilisateur pour s'assurer que l'identifiant de l'utilisateur est unique. Écrivez une fonction `generateUniqueId()` qui génère un identifiant unique basé sur les utilisateurs existants.
+  
+remarques utilisez  l'import suivant (nanoid de reduxtoolkit)
+```js
+import { nanoid } from '@reduxjs/toolkit';
+```
