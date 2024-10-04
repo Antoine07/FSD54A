@@ -27,7 +27,7 @@ L'objectif de ce TP est de créer une application React qui interagit avec une A
    - Créez un dossier `store` et un fichier `userSlice.js` à l'intérieur.
    - Dans `userSlice.js`, configurez le slice pour gérer l'état des utilisateurs (CRUD create, read, update, delete), utilisez la base ci-après pour gérer la récupération des users.
 
-**remarques** : vous récupérez les users avec `fetchUsers`, le reste se fera directement dans React, pour l'instant vous n'êtes pas en mesure d'interagir avec l'API Express.
+**remarques** : vous récupérez les users avec `fetchUsers` avec createAsyncThunk, le reste se fera directement dans React avec un createSlice et reducer classique, pour l'instant vous n'êtes pas en mesure d'interagir avec l'API Express et createAsyncThunk pour toutes les routes.
 
    ```javascript
    // module asynchrone pour récupérer les données distantes
