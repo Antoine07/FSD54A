@@ -46,7 +46,9 @@ L'objectif de ce TP est de créer une application React qui interagit avec une A
        loading: false,
      },
      reducers: {
- 
+          hello : (state) => {
+            console.log('hello')
+          }
      },
      // Cette partie permet de gérer la récupération des données asynchrone avec fetchUsers 
      extraReducers: (builder) => {
@@ -65,20 +67,24 @@ L'objectif de ce TP est de créer une application React qui interagit avec une A
      },
    });
 
-   export const { addUser, deleteUser, updateUser, setFilter } = userSlice.actions;
+   export const { hello } = userSlice.actions;
 
    export default userSlice.reducer;
    ```
 
 3. **Configurer le store :**
-   - Dans votre fichier `main.js`, configurez le store Redux :
+   - Dans votre fichier `main.js`, configurez le store Redux, pensez à créer un fichier `store.jsx`
 
 4. **Créer le composant App :**
    - Dans `App.js`, créez un composant qui affiche la liste des utilisateurs, un formulaire pour ajouter un utilisateur, et des boutons pour supprimer et mettre à jour un utilisateur. Ajoutez également un filtre pour trier les utilisateurs par ordre alphabétique
 
 6. **Mise en place d'un menu de navigation**
-   - Ajoutez un menu de navigation en haut de votre application avec les items suivants : `Home`, `Users`, `About`. Utilisez React Router pour naviguer entre ces pages.
+   - Ajoutez un menu de navigation en haut de votre application avec les items suivants : `home`, `add user`, `about`.
+      - `home` on affiche tous les utilisateurs
+      - `add user` ajoute un utilisateur
+      - `about` présente l'équipe qui gère l'application
 
+   Utilisez React Router pour naviguer entre ces pages.
 
 ## Partie 3 : 
 
